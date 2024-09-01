@@ -12,9 +12,17 @@ const Table = (props) => {
     let myelement = useRef(null)
 
     const handleData = (e) => {
-        e.preventDefault()
-        setFilterConfig(prveState => ({ ...prveState, [e.target.name]: e.target.value }))
-        console.log({ ...filterConfig, [e.target.name]: e.target.value })
+        e.preventDefault();
+        if (e.target.value == "") {
+            setFilterConfig((prevState) => {
+                let { [e.target.name]: _, ...newObject } = prevState;
+                return newObject
+            })
+        } else {
+            setFilterConfig(prveState => ({ ...prveState, [e.target.name]: e.target.value }))
+        }
+
+
 
     }
     const handlefrom = () => {
