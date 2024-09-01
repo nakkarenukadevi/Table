@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind utilities;
 @tailwind components;
+
+.showSearch{
+    display: none;
+}
+.active{
+    display: grid;
+}
